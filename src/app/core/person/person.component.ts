@@ -8,6 +8,7 @@ import {IfAuthenticatedDirective} from '../../shared/directives/if-authenticated
 
 import {RxStompService} from '@stomp/ng2-stompjs';
 import {WebSocketService} from '../_service/websocket.service';
+import {ZipUploadComponent} from '../layout/zip-upload/zip-upload.component';
 
 @Component({
   selector: 'app-person-table',
@@ -18,7 +19,8 @@ import {WebSocketService} from '../_service/websocket.service';
     NgForOf,
     NgIf,
     ReactiveFormsModule,
-    IfAuthenticatedDirective
+    IfAuthenticatedDirective,
+    ZipUploadComponent
   ],
   providers: [WebSocketService, RxStompService],
   styleUrls: ["./edit.css"]
