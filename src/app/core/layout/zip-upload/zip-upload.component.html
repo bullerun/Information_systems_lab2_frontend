@@ -1,0 +1,15 @@
+<form [formGroup]="zipForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <label for="fileInput">Upload ZIP File:</label>
+  <input
+    type="file"
+    id="fileInput"
+    (change)="onFileChange($event)"
+    formControlName="zipFile"
+    accept=".zip"
+  />
+  <div *ngIf="zipForm.get('zipFile')?.errors as errors">
+    <small *ngIf="errors['invalidZip']">File must be a valid ZIP file.</small>
+    <small *ngIf="errors['invalidContent']">ZIP file must contain only JSON files (max 10).</small>
+  </div>
+  <button type="submit" [disabled]="zipForm.invalid">Submit</button>
+</form>
