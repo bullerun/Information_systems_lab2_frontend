@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-zip-upload',
+  selector: 'app-zip-movie-upload',
   templateUrl: './zip-upload.component.html',
   styleUrls: ['./zip-upload.component.css'],
   imports: [
@@ -18,7 +18,7 @@ export class ZipUploadComponent {
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.zipForm = this.fb.group({
-      zipFile: [null, Validators.required], // Поле для файла
+      zipFile: [null, Validators.required],
     });
   }
 
@@ -43,14 +43,18 @@ export class ZipUploadComponent {
         formData.append('file', file);
       }
       this.zipForm.reset();
-      this.http.post('http://localhost:9090/person/upload', formData).subscribe({
+      this.http.post('http://localhost:9090/movie/upload', formData).subscribe({
         next: () => {
           alert('File uploaded successfully!');
         },
         error: (err) => {
-          alert(err.error);
+          console.log(err);
+          alert(err.error.error);
+          console.log(err.error.goldenPalmCount)
         },
       });
     }
   }
 }
+
+

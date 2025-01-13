@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {MovieFormComponent} from './form/movie-form.component';
 import {WebSocketService} from '../_service/websocket.service';
 import {RxStompService} from '@stomp/ng2-stompjs';
+import {ZipUploadComponent} from '../layout/zip-movie-upload/zip-upload.component';
 
 
 @Component({
@@ -24,6 +25,7 @@ import {RxStompService} from '@stomp/ng2-stompjs';
     FormsModule,
     NgForOf,
     MovieFormComponent,
+    ZipUploadComponent,
   ],
   providers: [WebSocketService, RxStompService],
   standalone: true,
